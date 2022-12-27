@@ -1,17 +1,23 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent{
   @Input() index=0;
-  ngOnInit() {
-    // ...
+  path:any
+  routes=["","about","skills","contact"]
+  
+  
+  constructor(private router: Router) {    
+    
   }
-  setIndex(index:any){
-    this.index=index;
-    console.log(index)
+  isActive(index:any){
+    this.path=this.router.url.split("/")
+    var activeIndex=this.routes.indexOf(this.path[1])
+    return activeIndex==index
   }
 }
