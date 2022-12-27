@@ -1,0 +1,28 @@
+<div class="sidebar">
+    <div class="sidebar-elements">
+        
+        <a mat-button routerLink="" (click)="setIndex(0)" >
+            <div class="box" [ngClass]="index==0?'active':'inactive'">
+                <img src="assets/img/home.png">
+            </div>
+        </a>
+    
+        <a mat-button routerLink="about" (click)="setIndex(1) " >
+            <div class="box" [ngClass]="index==1?'active':'inactive'">
+                <img src="assets/img/user.png">
+            </div>
+        </a>
+        <a mat-button routerLink="skills" (click)="setIndex(2)">
+            <div class="box" [ngClass]="index==2?'active':'inactive'">
+                <img src="assets/img/technology.png">
+            </div>
+        </a>
+        <a mat-button routerLink="contact" (click)="setIndex(3)">
+            <div class="box" [ngClass]="index==3?'active':'inactive'">
+                <img src="assets/img/send.png">
+            </div>
+        </a>
+    </div>
+
+</div>
+
