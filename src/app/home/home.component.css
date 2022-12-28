@@ -1,0 +1,30 @@
+.bigger-icon{
+    color: wheat;
+    transform: scale(20) rotate(-20deg);
+    margin-left: 15em;
+    display: flex;
+    margin-bottom: 10em;
+}
+.bigger-icon .right-icon{
+    color: #0022ff;
+    height: 0.75em;
+    width: 0.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.bigger-icon .left-icon{
+    color: #00fffa;
+    margin-right: -9px;
+    height: 0.75em;
+    width: 0.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.subtext{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    color: gray;
+}

@@ -2,7 +2,7 @@
     position: absolute;
     height: 100%;
     background-color:#272424;
-    width: 5.5em;
+    width: 4em;
     color: green;
     z-index: 1;
 }
@@ -15,12 +15,43 @@
     flex-direction: column;
 }
 img{
-    margin: 10em;
+    margin: 6em;
 }
 .mat-mdc-button {
     transform: scale(0.5);
-    margin: 7.5em 0px 7.5em 0px;
+    margin: 5em 0px 5em 0px;
 }
 .active{
     background-color: #b3b2b075;
+}
+
+.main-icon{
+    display: flex;
+    justify-content: center;
+    height: 5em;
+    position: absolute;
+    width: 4em;
+    background-color: #00000057;
+}
+
+.bigger-icon{
+    color: wheat;
+    transform: scale(4);
+    display: flex;
+    
+}
+.bigger-icon .right-icon{
+    color: #0022ff;
+    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.bigger-icon .left-icon{
+    color: #00fffa;
+    margin-right: -9px;
+    
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
