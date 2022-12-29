@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  getSplit(string:String) {
+    return string.split('')
+}
 }

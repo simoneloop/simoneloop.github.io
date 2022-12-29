@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ContactComponent } from './contact/contact.component';
+import { SplitPipe } from './split-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     AboutComponent,
     SkillsComponent,
-    ContactComponent
+    ContactComponent,
+    SplitPipe,
+    
   ],
   imports: [
     BrowserModule,

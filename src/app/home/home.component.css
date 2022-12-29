@@ -1,12 +1,15 @@
 .bigger-icon{
     color: wheat;
-    transform: scale(20) rotate(-20deg);
-    margin-left: 15em;
+    transform: scale(50) rotate(-20deg);
     display: flex;
-    margin-bottom: 10em;
+    justify-content: center;
+    width: fit-content;
+    
 }
 .bigger-icon .right-icon{
-    color: #0022ff;
+    background: -webkit-linear-gradient(rgb(72, 30, 47),rgb(2, 44, 60));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     height: 0.75em;
     width: 0.5em;
     align-items: center;
@@ -14,7 +17,9 @@
     justify-content: center;
 }
 .bigger-icon .left-icon{
-    color: #00fffa;
+    background: -webkit-linear-gradient(rgb(2, 44, 60),rgb(72, 30, 47));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-right: -9px;
     height: 0.75em;
     width: 0.5em;

@@ -1,9 +1,12 @@
 <div class="content">
     <div class="left-content">
         <div class="intro">
-            <p class="popping">
-                CIAO,
-            </p>
+            
+            <span *ngFor="let num of getSplit('CIAO')" class="popping">{{num}}</span>
+                
+            
+            
+            
             <p class="popping">
                 SONO SIMONE,
             </p>
@@ -15,7 +18,7 @@
 
     <div class="right-content">
         <div class="">
-            <div class="bigger-icon popping">
+            <div class="bigger-icon">
                 <p class="left-icon">S</p>
                 <p class="right-icon">S</p>
             </div>
