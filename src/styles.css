@@ -19,48 +19,20 @@ span{
 .popping:hover {
     z-index: 1; /* porta la lettera selezionata in primo piano */
     color: aquamarine;
-    animation-name: popping; /* specifica il nome dell'animazione */
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards; /* fa continuare l'animazione anche dopo che il mouse esce dall'elemento */
+    animation-name: bouncing; /* specifica il nome dell'animazione */
+    animation-duration: 2s;
+    animation-fill-mode: forwards; 
 }
 .popping {
-font-weight: bold;
-display: inline-flex; 
-animation: grow 0.3s, shrink 0.3s; /* specifica entrambe le animazioni */
-animation-fill-mode: forwards; /* indica che l'animazione deve continuare a essere applicata anche quando non è in esecuzione */
-}
-  
-/* animazione per l'ingrandimento */
-@keyframes grow {
-from {
-    transform: scale(1); /* dimensione originale della lettera */
-}
-to {
-    transform: scale(1.3); /* ingrandisce la lettera del 30% */
-}
-}
-  
-/* animazione per il ripristino della dimensione originale */
-@keyframes shrink {
-from {
-    transform: scale(1.3); /* dimensione ingrandita */
-}
-to {
-    transform: scale(1); /* dimensione originale */
-}
+    font-weight: bold;
+    display: inline-flex; 
+    animation: bounc-up 0.5s, bounc-down 0.5s; /* specifica entrambe le animazioni */
+
+    animation-fill-mode: forwards; /* indica che l'animazione deve continuare a essere applicata anche quando non è in esecuzione */
 }
   
 
-
-
-  @keyframes popping {
-    from {
-      transform: scale(1); /* dimensione originale della lettera */
-    }
-    to {
-      transform: scale(1.3); /* ingrandisce la lettera del 30% */
-    }
-  }
+  
 .content{
     position: absolute;
     display: flex;
@@ -82,3 +54,51 @@ to {
 .right-content{
     flex-grow: 1;
 }
+@keyframes bouncing {
+    0% {
+      transform: scaleY(1) scaleX(1);
+    }
+    20%{
+        transform: scaleY(0.7) scaleX(1.3);
+    }
+    40% {
+      transform: scaleY(1.3) scaleX(0.7); /* dimensione ridotta del 10% */
+    }
+    60%{
+        transform: scaleY(0.85) scaleX(1.15);
+    }
+    80%{
+        transform: scaleY(1.15) scaleX(0.85);
+    }
+    100% {
+      transform: scaleY(1) scaleX(1); 
+    }
+  }
+
+
+
+
+  @keyframes bounc-up {
+    0% {
+      transform: scaleY(1) scaleX(1);
+    }
+    50%{
+        transform: scaleY(0.7) scaleX(1.3);
+    }
+    100% {
+      transform: scaleY(1) scaleX(1);
+    }
+    
+  }
+  @keyframes bounc-down {
+    
+    0%{
+        transform: scaleY(0.85) scaleX(1.15);
+    }
+    50%{
+        transform: scaleY(1.15) scaleX(0.85);
+    }
+    100% {
+      transform: scaleY(1) scaleX(1); /* dimensione originale */
+    }
+  }

@@ -36,22 +36,33 @@ img{
 
 .bigger-icon{
     color: wheat;
-    transform: scale(4);
+    
     display: flex;
+    
+    
+}
+
+.right{
+
+    margin-left: 1em;
+    margin-bottom: 1em;
     
 }
 .bigger-icon .right-icon{
-    color: #0022ff;
-    
+   
+    color:rgb(72, 30, 47) ;
     align-items: center;
     display: flex;
     justify-content: center;
+    transform: scale(2.7);
+    
 }
 .bigger-icon .left-icon{
-    color: #00fffa;
-    margin-right: -9px;
+    color:rgb(2, 44, 60) ;
+    margin-right: -13px;
     
     align-items: center;
     display: flex;
     justify-content: center;
+    transform: scale(2.7);
 }
