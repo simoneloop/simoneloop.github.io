@@ -11,6 +11,7 @@ p{margin: 0;}
   }
 
 p{
+    color: wheat;
     font-family: "Chakra Petch";
 }
 span{
@@ -101,4 +102,8 @@ span{
     100% {
       transform: scaleY(1) scaleX(1); /* dimensione originale */
     }
+  }
+
+  mat-progress-bar .mat-progress-bar-buffer {
+    background-color: #3f8dca;
   }

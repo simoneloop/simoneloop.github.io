@@ -11,8 +11,10 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ContactComponent } from './contact/contact.component';
-import { SplitPipe } from './split-pipe.pipe';
-
+import { LoadingComponent } from './loading/loading.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { LoadingService } from './loading-service.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { SplitPipe } from './split-pipe.pipe';
     AboutComponent,
     SkillsComponent,
     ContactComponent,
-    SplitPipe,
+    LoadingComponent,
+    
     
   ],
   imports: [
@@ -30,9 +33,16 @@ import { SplitPipe } from './split-pipe.pipe';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule,
+    HttpClientModule
+     
+    
+
   ],
-  providers: [],
+  providers: [
+    LoadingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component,Input,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingService } from '../loading-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +14,24 @@ export class NavbarComponent{
   routes=["","about","skills","contact"]
   
   
-  constructor(private router: Router) {    
+  constructor(private router: Router,public loadingService:LoadingService) {    
     
   }
   isActive(index:any){
     this.path=this.router.url.split("/")
     var activeIndex=this.routes.indexOf(this.path[1])
     return activeIndex==index
+  }
+  changeRoute(index:any){
+    if(!this.isActive(index)){
+      this.loadingService.startLoading()
+    }
+  }
+  getRoute(index:number){
+    if(!this.loadingService.loading){
+      return this.routes[index]
+    }
+    return null
+    
   }
 }

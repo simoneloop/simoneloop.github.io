@@ -4,7 +4,7 @@
     background-color:#272424;
     width: 4em;
     color: green;
-    z-index: 1;
+    z-index: 2;
 }
 .sidebar-elements{
     position: relative;
@@ -66,3 +66,9 @@ img{
     justify-content: center;
     transform: scale(2.7);
 }
+.cover.active{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;}
