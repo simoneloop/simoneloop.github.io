@@ -9,6 +9,7 @@ export class LoadingService {
 
   // Variabile per indicare se il caricamento è in corso o meno
   public loading = false;
+  public closeEndLoading=false;
   // Contatore per il caricamento
   public counter = 0;
   index=0
@@ -32,10 +33,13 @@ export class LoadingService {
     if(!this.loading){
       this.index=Math.floor(Math.random() * this.text.length)
       this.loading = true;
+      this.closeEndLoading=false
       this.counter=0;
       const intervalId = setInterval(() => {
         this.counter++;
+        
         if (this.counter === 100) {
+          this.closeEndLoading=true
           
           // Se il contatore raggiunge 100, interrompi l'intervallo e imposta la variabile "loading" su false
         
@@ -46,7 +50,7 @@ export class LoadingService {
           },450)
           
         }
-      }, 5);
+      }, 20);
     }
     
   }

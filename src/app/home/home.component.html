@@ -1,27 +1,29 @@
-<div class="content">
-    <div class="left-content">
-        <div class="intro">
-            
-            <span *ngFor="let num of getSplit('CIAO,')" class="popping">{{num}}</span>
-                
-            <p class="spacer"></p>
-            <span *ngFor="let num of getSplit('SONO&nbsp;SIMONE.')" class="popping">{{num}}</span>
-            
-            <p class="spacer"></p>
-            <span *ngFor="let num of getSplit('Sviluppatore.')" class="popping">{{num}}</span>
-            <p class="spacer"></p>
-            <span class="subtext">Data scientist | Fullstack developer | Freelancer</span>
-        </div>
-    
-    </div>
 
-    <div class="right-content">
-        <div class="">
-            <div class="bigger-icon">
-                <p class="left-icon">S</p>
-                <p class="right-icon">S</p>
+    <div class="content" [ngClass]="loadingService.loading?loadingService.closeEndLoading?'fading-out':'fading-in':''">
+        <div class="left-content">
+            <div class="intro">
+                
+                <span *ngFor="let num of getSplit('CIAO,')" class="popping">{{num}}</span>
+                    
+                <p class="spacer"></p>
+                <span *ngFor="let num of getSplit('SONO&nbsp;SIMONE.')" class="popping">{{num}}</span>
+                
+                <p class="spacer"></p>
+                <span *ngFor="let num of getSplit('Sviluppatore.')" class="popping">{{num}}</span>
+                <p class="spacer"></p>
+                <span class="subtext">Data scientist | Fullstack developer | Freelancer</span>
             </div>
-            
+        
+        </div>
+
+        <div class="right-content">
+            <div class="">
+                <div class="bigger-icon">
+                    <p class="left-icon">S</p>
+                    <p class="right-icon">S</p>
+                </div>
+                
+            </div>
         </div>
     </div>
-</div>
+    

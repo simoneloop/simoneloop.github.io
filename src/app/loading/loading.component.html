@@ -1,4 +1,4 @@
-<div *ngIf="loadingService.loading" class="loader">
+<div *ngIf="loadingService.loading" class="loader" [ngClass]="loadingService.closeEndLoading?'slideAway':''">
     <img class="me-and-chicca" src="assets/img/dog-running.png">
     <img class="rotating" src="assets/img/globe.png">
     <!-- <mat-progress-bar  class="progress-bar" mode="determinate" [value]="loadingService.counter" ></mat-progress-bar> -->

@@ -15,23 +15,23 @@
     <div class="cover" [ngClass]="loadingService.loading?'active':'inactive'"></div>
     <div class="sidebar-elements">
         
-        <a mat-button routerLink="{{getRoute(0)}}" (click)="changeRoute(0)">
+        <a mat-button  (click)="changeRoute(0)">
             <div class="box" [ngClass]="isActive(0)?'active':'inactive'">
                 <img src="assets/img/home.png">
             </div>
         </a>
     
-        <a mat-button routerLink="about" (click)="changeRoute(1)">
+        <a mat-button (click)="changeRoute(1)">
             <div class="box" [ngClass]="isActive(1)?'active':'inactive'">
                 <img src="assets/img/user.png">
             </div>
         </a>
-        <a mat-button routerLink="skills" (click)="changeRoute(2)">
+        <a mat-button  (click)="changeRoute(2)">
             <div class="box" [ngClass]="isActive(2)?'active':'inactive'">
                 <img src="assets/img/technology.png">
             </div>
         </a>
-        <a mat-button routerLink="contact" (click)="changeRoute(3)" >
+        <a mat-button (click)="changeRoute(3)" >
             <div class="box" [ngClass]="isActive(3)?'active':'inactive'">
                 <img src="assets/img/send.png">
             </div>

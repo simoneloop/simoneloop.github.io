@@ -23,15 +23,18 @@ export class NavbarComponent{
     return activeIndex==index
   }
   changeRoute(index:any){
+    this.getRoute(index)
     if(!this.isActive(index)){
       this.loadingService.startLoading()
     }
   }
+
+  
   getRoute(index:number){
-    if(!this.loadingService.loading){
-      return this.routes[index]
-    }
-    return null
+    setTimeout(() => {
+      // Qui puoi inserire il codice per accedere alla route
+      this.router.navigate([this.routes[index]]);
+    }, 800); 
     
   }
 }

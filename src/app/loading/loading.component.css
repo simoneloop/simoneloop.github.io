@@ -8,7 +8,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    animation-name:move ;
+    animation-duration: 0.8s;
+    
 }
+@keyframes move {
+    from { 
+        transform: translateX(-100%);
+      }
+    to { 
+      transform: translateX(0%);
+    }
+  }
 .progress-bar{
     width: 15em;
     
@@ -37,5 +48,19 @@ img{
     }
     to{
         transform:scale(1.2) rotate(-359deg);
+    }
+}
+
+.slideAway{
+    animation-name: slideAway;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes slideAway{
+    from { 
+        transform: translateX(0%);
+      }
+    to { 
+      transform: translateX(100%);
     }
 }

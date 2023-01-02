@@ -8,4 +8,5 @@ import { LoadingService } from './loading-service.service';
 })
 export class AppComponent {
   title = 'pws';
+  constructor(public loadingService:LoadingService){}
 }
