@@ -50,7 +50,7 @@ img{
 }
 .bigger-icon .right-icon{
    
-    color:rgb(72, 30, 47) ;
+    color:#481e2f ;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -58,7 +58,7 @@ img{
     
 }
 .bigger-icon .left-icon{
-    color:rgb(2, 44, 60) ;
+    color:#022c3c ;
     margin-right: -13px;
     
     align-items: center;

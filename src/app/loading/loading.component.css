@@ -3,15 +3,36 @@
     width: 100%;
     z-index: 1;
     position: absolute;
-    padding-bottom: 100%;
+    margin-bottom: 100%;
     background-color: rgb(32, 30, 35);
     justify-content: center;
     align-items: center;
     flex-direction: column;
     animation-name:move ;
     animation-duration: 0.8s;
+    height: 100vh;
+    /* max-height: 100vh; */
     
 }
+.center-container{
+    display: flex;
+    width: 100%;
+    
+    margin-bottom: 12em;
+    
+    align-items: center;
+    flex-direction: column;
+    animation-name: _ngcontent-tfv-c45_move;
+    animation-duration: 0.8s;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .center-container {
+        transform: scale(0.7);
+    }
+  }
+
 @keyframes move {
     from { 
         transform: translateX(-100%);

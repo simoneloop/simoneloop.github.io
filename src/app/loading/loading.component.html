@@ -1,9 +1,11 @@
 <div *ngIf="loadingService.loading" class="loader" [ngClass]="loadingService.closeEndLoading?'slideAway':''">
-    <img class="me-and-chicca" src="assets/img/dog-running.png">
-    <img class="rotating" src="assets/img/globe.png">
-    <!-- <mat-progress-bar  class="progress-bar" mode="determinate" [value]="loadingService.counter" ></mat-progress-bar> -->
-    <p class="margin"></p>
-    <p>LO SAPEVI CHE:</p>
-    <p class="margin"></p>
-    <p>{{loadingService.getText()}}</p>
+    <div class="center-container">
+        <img class="me-and-chicca" src="assets/img/dog-running.png">
+        <img class="rotating" src="assets/img/globe.png">
+        <!-- <mat-progress-bar  class="progress-bar" mode="determinate" [value]="loadingService.counter" ></mat-progress-bar> -->
+        <p class="margin"></p>
+        <p>LO SAPEVI CHE:</p>
+        <p class="margin"></p>
+        <p>{{loadingService.getText()}}</p>
+    </div>
 </div>
