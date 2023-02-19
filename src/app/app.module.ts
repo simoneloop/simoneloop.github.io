@@ -15,6 +15,7 @@ import { LoadingComponent } from './loading/loading.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LoadingService } from './loading-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GlobusComponent } from './globus/globus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     SkillsComponent,
     ContactComponent,
     LoadingComponent,
-    
-    
+    GlobusComponent,   
   ],
   imports: [
     BrowserModule,
@@ -36,9 +36,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatProgressBarModule,
     HttpClientModule
-     
-    
-
   ],
   providers: [
     LoadingService
