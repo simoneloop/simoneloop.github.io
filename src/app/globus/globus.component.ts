@@ -1,5 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+
+
 
 @Component({
   selector: 'app-globus',
@@ -15,130 +19,38 @@ export class GlobusComponent implements OnInit, AfterViewInit {
   private scene!: THREE.Scene;
   private sphere!: THREE.Mesh;
 
-  private width=350;
-  private height=350;
+  private width=500;
+  private height=500;
   private radius=3;
 
   private mouseDown = false;
   private lastMouseX =0;
   private lastMouseY =0;
 
+  private geometryText!: TextGeometry;
+  private textMesh!:THREE.Mesh;
+  private textMeshes: THREE.Mesh[] = [];
+
   private words: string[] = [
-    'Alba',
-    'Ambiente',
-    'Amore',
-    'Anima',
-    'Aurora',
-    'Avventura',
-    'Bellezza',
-    'Buonumore',
-    'Calma',
-    'Cambiamento',
-    'Canto',
-    'Capolavoro',
-    'Carino',
-    'Casa',
-    'Cielo',
-    'Colori',
-    'Comprensione',
-    'Concentrazione',
-    'Coraggio',
-    'Creatività',
-    'Crescita',
-    'Cura',
-    'Curiosità',
-    'Danza',
-    'Dedizione',
-    'Delizia',
-    'Destino',
-    'Dolcezza',
-    'Eccitazione',
-    'Educazione',
-    'Eleganza',
-    'Empatia',
-    'Energia',
-    'Entusiasmo',
-    'Equilibrio',
-    'Esplorazione',
-    'Espressione',
-    'Famiglia',
-    'Fantasia',
-    'Felicità',
-    'Fiducia',
-    'Flessibilità',
-    'Forza',
-    'Fortuna',
-    'Gioia',
-    'Giovinezza',
-    'Glamour',
-    'Grazia',
-    'Gruppo',
-    'Harmony',
-    'Illuminazione',
-    'Immaginazione',
-    'Incanto',
-    'Innovazione',
-    'Intelligenza',
-    'Intimità',
-    'Introspezione',
-    'Ironia',
-    'Lavoro di squadra',
-    'Libertà',
-    'Luce',
-    'Luminosità',
-    'Magia',
-    'Mente aperta',
-    'Meraviglia',
-    'Mistero',
-    'Motivazione',
-    'Musica',
-    'Natura',
-    'Nostalgia',
-    'Ospitalità',
-    'Pace',
-    'Passione',
-    'Perdono',
-    'Poesia',
-    'Potere',
-    'Profondità',
-    'Prospettiva',
-    'Purazza',
-    'Ragione',
-    'Rallegrare',
-    'Riconoscenza',
-    'Riflessione',
-    'Rigorosità',
-    'Rilassamento',
-    'Rinnovamento',
-    'Rispetto',
-    'Risveglio',
-    'Romanticismo',
-    'Saggezza',
-    'Semplicità',
-    'Serendipità',
-    'Serenità',
-    'Sfida',
-    'Sincronicità',
-    'Sofferenza',
-    'Sogni',
-    'Sorriso',
-    'Speranza',
-    'Spirito',
-    'Stile',
-    'Successo',
-    'Sviluppo',
-    'Talento',
-    'Tenacia',
-    'Tenerezza',
-    'Tranquillità',
-    'Trasformazione',
-    'Umiltà',
-    'Unione',
-    'Virtù',
-    'Visone',
-    'Vitalità',
-    'Vivacità',
-    'Vivere'
+    'Springboot',
+    'Angular',
+    'Spark',
+    'Python',
+    'IA',
+    'THREE',
+    'Canne',
+    'Java',
+    'Dart',
+    'C#',
+    'HTML',
+    'JavaScript',
+    'CSS',
+    'Flutter',
+    'TypeScript',
+    'Unity',
+    'Tensorflow',
+    'Aton',
+
   ];
 
   ngOnInit() {
@@ -150,10 +62,11 @@ export class GlobusComponent implements OnInit, AfterViewInit {
     this.renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true});
     this.renderer.setSize(this.width,this.height);
     this.scene=new THREE.Scene()
-    this.camera = new THREE.PerspectiveCamera(25, this.width / this.height, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(30, this.width / this.height, 0.1, 1000);
     this.camera.position.z = 5;
     const geometry = new THREE.BufferGeometry();
     const vertices: THREE.Vector3[] = [];
+    
 
     const numVertices = this.words.length;
 
@@ -169,14 +82,56 @@ export class GlobusComponent implements OnInit, AfterViewInit {
       z*=this.radius;
       vertices.push(new THREE.Vector3(x, y, z));
     }
+    const loader = new FontLoader();
     // Aggiungi i vertici alla geometria
     const positions = [];
+    const radius=1.1
     for (let i = 0; i < vertices.length; i++) {
       const vertex = vertices[i];
       vertex.normalize();
-      positions.push(vertex.x, vertex.y, vertex.z);
+      positions.push(vertex.x*radius, vertex.y*radius, vertex.z*radius);
+      loader.load( 'assets/font/helvetiker_regular.typeface.json',  ( font: any ) => {
+
+        this.geometryText = new TextGeometry( this.words[i], {
+          font: font,
+          size: 0.05,
+          height: 0.05,
+          curveSegments: 20,
+          
+        } );
+        this.geometryText.computeBoundingBox()
+        let centerOffset=0;
+        if (this.geometryText && this.geometryText.boundingBox) {
+          centerOffset= - 0.5 * (this.geometryText.boundingBox.max.x - this.geometryText.boundingBox.min.x);
+          // Rest of the code that uses centerOffset
+        } else {
+          console.log("nullo")
+          // Handle the case where geometryText or boundingBox is null
+        }
+        const materials = [
+          new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
+          new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
+        ];
+        const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        material.side = THREE.DoubleSide;
+      
+        this.textMesh = new THREE.Mesh(this.geometryText, materials);
+        this.textMesh.position.set(vertex.x, vertex.y, vertex.z);
+        this.textMeshes.push(this.textMesh)
+        //this.textMesh.lookAt(this.camera.position);
+        this.scene.add(this.textMesh);
+        
+        console.log(this.textMesh)
+        const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+        directionalLight.position.set( 10, 10, 10 );
+        this.scene.add( directionalLight );
+        
+      } );
       
     }
+    
+    
+    console.log(this.scene)
 
     // Aumenta la dimensione del buffer di vertici
     const vertexBuffer = new Float32Array(positions.length * 3);
@@ -184,8 +139,11 @@ export class GlobusComponent implements OnInit, AfterViewInit {
     geometry.setAttribute('position', new THREE.BufferAttribute(vertexBuffer, 3));
     
     const material = new THREE.MeshBasicMaterial({color: 0xffff00,wireframe:true});
-    
+    material.visible = false;
+
     this.sphere = new THREE.Mesh(geometry, material);
+
+    this.sphere.position.set(0,0,0)
     this.scene.add(this.sphere);
     // Registra gli eventi del mouse
     canvas.addEventListener('mouseenter',this.onMouseEnter);
@@ -208,22 +166,34 @@ export class GlobusComponent implements OnInit, AfterViewInit {
   }
   
   private onMouseMove = (event: MouseEvent) => {
-    if (this.lastMouseX && this.lastMouseY) {
-        const deltaX = event.clientX - this.lastMouseX;
-        const deltaY = event.clientY - this.lastMouseY;
-
-        if (deltaX !== 0 || deltaY !== 0) {
-            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            const axis = new THREE.Vector3(deltaY, deltaX, 0).normalize();
-            const angle = distance * 0.01;
-
-            this.sphere.rotateOnWorldAxis(axis, angle);
-        }
+    if (this.lastMouseX !== null && this.lastMouseY !== null) {
+      const deltaX = event.clientX - this.lastMouseX;
+      const deltaY = event.clientY - this.lastMouseY;
+  
+      const rotationSpeed = 0.01;
+      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+      const axis = new THREE.Vector3(deltaY, deltaX, 0).normalize();
+      const angle = distance * rotationSpeed;
+  
+      this.sphere.rotateOnWorldAxis(axis, angle);
+  
+      const positionAttribute = this.sphere.geometry.getAttribute('position') as THREE.BufferAttribute;
+  
+      for (let i = 0; i < this.textMeshes.length; i++) {
+        const vertex = new THREE.Vector3().fromBufferAttribute(positionAttribute, i);
+        vertex.applyQuaternion(this.sphere.quaternion);
+        this.textMeshes[i].position.set(vertex.x,vertex.y,vertex.z);
+      }
+  
+      positionAttribute.needsUpdate = true;
     }
-
+  
     this.lastMouseX = event.clientX;
     this.lastMouseY = event.clientY;
-}
+  }
+  
+
+
 
 }
 
