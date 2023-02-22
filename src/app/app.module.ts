@@ -16,6 +16,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LoadingService } from './loading-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobusComponent } from './globus/globus.component';
+import { TranslateService } from './translate.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { GlobusComponent } from './globus/globus.component';
     SkillsComponent,
     ContactComponent,
     LoadingComponent,
-    GlobusComponent,   
+    GlobusComponent,  
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { GlobusComponent } from './globus/globus.component';
     HttpClientModule
   ],
   providers: [
-    LoadingService
+    LoadingService,
+    TranslateService
   ],
   bootstrap: [AppComponent]
 })

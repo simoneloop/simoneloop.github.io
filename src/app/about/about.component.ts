@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoadingService } from '../loading-service.service';
+import { UtiService } from '../uti.service';
 
 @Component({
   selector: 'app-about',
@@ -7,6 +8,6 @@ import { LoadingService } from '../loading-service.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  constructor(public loadingService:LoadingService){}
+  constructor(public loadingService:LoadingService, public uti:UtiService){}
 
 }

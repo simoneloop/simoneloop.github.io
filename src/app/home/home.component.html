@@ -3,13 +3,13 @@
         <div class="left-content">
             <div class="intro">
                 
-                <span *ngFor="let num of getSplit('CIAO,')" class="popping">{{num}}</span>
+                <span *ngFor="let num of uti.getSplit('CIAO,')" class="popping">{{num}}</span>
                     
                 <p class="spacer"></p>
-                <span *ngFor="let num of getSplit('SONO&nbsp;SIMONE.')" class="popping">{{num}}</span>
+                <span *ngFor="let num of uti.getSplit('SONO&nbsp;SIMONE.')" class="popping">{{num}}</span>
                 
                 <p class="spacer"></p>
-                <span *ngFor="let num of getSplit('Sviluppatore.')" class="popping">{{num}}</span>
+                <span *ngFor="let num of uti.getSplit('Sviluppatore.')" class="popping">{{num}}</span>
                 <p class="spacer"></p>
                 <span class="subtext">Data scientist | Fullstack developer | Freelancer</span>
             </div>

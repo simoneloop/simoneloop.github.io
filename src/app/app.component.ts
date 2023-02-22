@@ -9,4 +9,7 @@ import { LoadingService } from './loading-service.service';
 export class AppComponent {
   title = 'pws';
   constructor(public loadingService:LoadingService){}
+  getSplit(string:String) {
+    return string.split('')
+  }
 }
