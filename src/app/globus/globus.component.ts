@@ -52,7 +52,15 @@ export class GlobusComponent implements OnInit, AfterViewInit {
     'Tensorflow',
     'Aton',
     'Cri',
-    'DOGGO'
+    'DOGGO',
+    'REST',
+    'JSON',
+    'NPM',
+    'JQuery',
+    'Pandas',
+    'Pytorch',
+    'BigData',
+    'Selenium'
 
   ];
 

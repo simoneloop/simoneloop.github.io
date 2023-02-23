@@ -6,3 +6,10 @@ p{
     font-size: 0.5em;
     color: gray;
 }
+
+.description-myself{
+    font-size: 0.4em;
+    color: gray;
+    margin-left: 1em;
+    width: 15em;
+}
