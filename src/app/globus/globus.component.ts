@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
@@ -11,7 +11,7 @@ import { MeshPhongMaterial } from 'three';
   templateUrl: './globus.component.html',
   styleUrls: ['./globus.component.css']
 })
-export class GlobusComponent implements OnInit, AfterViewInit {
+export class GlobusComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('canvas')
   private canvasRef!: ElementRef;
 
@@ -67,11 +67,15 @@ export class GlobusComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
- 
+
   ngAfterViewInit() {
     const canvas=this.canvasRef.nativeElement
-    this.renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true});
-    this.renderer.setSize(this.width,this.height);
+    const container = canvas.parentElement as HTMLElement | null;
+    this.width = container?.clientWidth || this.width;
+    this.height = container?.clientHeight || this.height;
+    this.renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    this.renderer.setSize(this.width,this.height,false);
     this.scene=new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(95, this.width / this.height, 0.1, 1000);
     this.camera.position.z = 3;
@@ -159,9 +163,30 @@ export class GlobusComponent implements OnInit, AfterViewInit {
     // Registra gli eventi del mouse
     canvas.addEventListener('mouseenter',this.onMouseEnter);
     canvas.addEventListener('mousemove', this.onMouseMove);
-    
+
+    window.addEventListener('resize', this.onResize);
+
     this.animate();
 
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  }
+
+  private onResize = () => {
+    if (!this.canvasRef) return;
+    const canvas = this.canvasRef.nativeElement;
+    const container = canvas.parentElement as HTMLElement | null;
+    if (!container) return;
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    if (!w || !h) return;
+    this.width = w;
+    this.height = h;
+    this.renderer.setSize(w, h, false);
+    this.camera.aspect = w / h;
+    this.camera.updateProjectionMatrix();
   }
 
   private animate = () => {
