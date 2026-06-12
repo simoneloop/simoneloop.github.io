@@ -49,7 +49,7 @@ span{
         position: relative;
         flex-direction: column;
         align-items: stretch;
-        padding: 1em 0.75em 1em 3.5em;
+        padding: 5em 1em 5.5em 1em;
         min-height: 100vh;
         overflow: visible;
     }
