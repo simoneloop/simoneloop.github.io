@@ -75,10 +75,41 @@ img{
 
 @media (max-width: 768px) {
     .sidebar {
-        width: 3em;
+        top: auto;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        height: 4em;
     }
     .main-icon {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 3em;
         height: 4em;
+        background-color: #272424;
+    }
+    .sidebar-elements {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        transform: none;
+        height: 100%;
+    }
+    .mat-mdc-button {
+        transform: none;
+        margin: 0;
+        min-width: 0;
+        padding: 0;
+    }
+    .box {
+        display: flex;
+        padding: 0.6em 1em;
+        border-radius: 0.6em;
+    }
+    img {
+        margin: 0;
+        width: 1.8em;
+        height: 1.8em;
     }
 }
