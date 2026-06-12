@@ -72,3 +72,13 @@ img{
     width: 100%;
     position: absolute;
     z-index: 2;}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 3em;
+    }
+    .main-icon {
+        width: 3em;
+        height: 4em;
+    }
+}

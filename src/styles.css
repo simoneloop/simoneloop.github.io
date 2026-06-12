@@ -41,6 +41,27 @@ span{
     min-height: 100%;
     align-items: center;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .content {
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1em 0.75em 1em 3.5em;
+        min-height: 100vh;
+        overflow: visible;
+    }
+    .left-content,
+    .right-content {
+        flex-grow: 0;
+        width: 100%;
+    }
+    .intro {
+        margin-left: 0 !important;
+        font-size: xx-large !important;
+    }
 }
 .fading-in{
   animation-name:fading-in;
