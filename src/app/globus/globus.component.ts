@@ -164,6 +164,10 @@ export class GlobusComponent implements OnInit, AfterViewInit, OnDestroy {
     canvas.addEventListener('mouseenter',this.onMouseEnter);
     canvas.addEventListener('mousemove', this.onMouseMove);
 
+    // Registra gli eventi touch per il rotare la sfera da mobile
+    canvas.addEventListener('touchstart', this.onTouchStart, { passive: true });
+    canvas.addEventListener('touchmove', this.onTouchMove, { passive: false });
+
     window.addEventListener('resize', this.onResize);
 
     this.animate();
@@ -172,6 +176,18 @@ export class GlobusComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     window.removeEventListener('resize', this.onResize);
+  }
+
+  private onTouchStart = (event: TouchEvent) => {
+    if (event.touches.length === 0) return;
+    this.lastMouseX = event.touches[0].clientX;
+    this.lastMouseY = event.touches[0].clientY;
+  }
+
+  private onTouchMove = (event: TouchEvent) => {
+    if (event.touches.length === 0) return;
+    event.preventDefault();
+    this.onMouseMove(event.touches[0] as unknown as MouseEvent);
   }
 
   private onResize = () => {
