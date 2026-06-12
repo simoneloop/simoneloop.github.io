@@ -1,0 +1,68 @@
+.content{
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 2em 4em 4em 6em;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.page-body{
+    margin-left: 2.2em;
+    width: calc(100% - 2.2em);
+}
+
+.category{
+    margin-bottom: 1.2em;
+}
+.category-title{
+    color: gray;
+    font-size: 1.05em;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.45em;
+}
+.chips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+.chip{
+    border: 1px solid rgba(245, 222, 179, 0.35);
+    color: #f5deb3;
+    font-family: 'Chakra Petch';
+    border-radius: 1em;
+    padding: 0.25em 0.8em;
+    font-size: 0.9em;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.chip:hover{
+    border-color: aquamarine;
+    color: aquamarine;
+    transform: translateY(-2px);
+}
+
+.section-title{
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+    margin: 1.4em 0 0.7em;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1em;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .content{
+        padding: 5em 1em 6em;
+    }
+    .page-body{
+        margin-left: 0;
+        width: 100%;
+    }
+}

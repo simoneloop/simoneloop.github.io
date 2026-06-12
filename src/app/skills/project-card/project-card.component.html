@@ -1,0 +1,7 @@
+<a class="project-card" [href]="project.url" target="_blank" rel="noopener">
+    <p class="project-name">{{project.name}}</p>
+    <p class="project-desc">{{ 'skills.projects.' + project.descKey | translate }}</p>
+    <div class="tags">
+        <span class="tag" *ngFor="let t of project.tags">{{t}}</span>
+    </div>
+</a>

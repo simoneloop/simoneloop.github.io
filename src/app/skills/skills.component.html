@@ -1,8 +1,21 @@
 <div class="content" [ngClass]="loadingService.loading?loadingService.closeEndLoading?'fading-out':'fading-in':''">
 
-    <div class="left-content">
-        <div class="intro">
-            <p>skills</p>
+    <div class="intro">
+        <span *ngFor="let num of uti.getSplit('skills.title' | translate)" class="popping">{{num}}</span>
+    </div>
+
+    <div class="page-body">
+        <div class="category" *ngFor="let cat of categories">
+            <p class="category-title">{{ 'skills.categories.' + cat.key | translate }}</p>
+            <div class="chips">
+                <span class="chip" *ngFor="let chip of cat.chips">{{chip}}</span>
+            </div>
+        </div>
+
+        <p class="section-title">{{ 'skills.projects_title' | translate }}</p>
+
+        <div class="projects-grid">
+            <app-project-card *ngFor="let p of projects" [project]="p"></app-project-card>
         </div>
     </div>
 </div>
