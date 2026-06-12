@@ -33,3 +33,12 @@
     font-size: x-large;
     color: gray;
 }
+
+@media (max-width: 768px) {
+    .right-content {
+        display: none;
+    }
+    .subtext {
+        font-size: medium;
+    }
+}
