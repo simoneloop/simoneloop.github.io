@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { LoadingService } from './loading-service.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { LoadingService } from './loading-service.service';
 })
 export class AppComponent {
   title = 'pws';
-  constructor(public loadingService:LoadingService){}
+  constructor(public loadingService:LoadingService, translate: TranslateService){
+    const lang = localStorage.getItem('lang') ?? (navigator.language?.startsWith('it') ? 'it' : 'en');
+    translate.use(lang);
+  }
   getSplit(string:String) {
     return string.split('')
   }

@@ -1,0 +1,42 @@
+{
+    "home": {
+        "hello": "HI,",
+        "iam": "I'M SIMONE.",
+        "role": "Developer.",
+        "subtext": "GenAI engineer | Data scientist | Fullstack developer"
+    },
+    "about": {
+        "title": "Me, myself & i",
+        "description": "Computer Engineering graduate with a Master in AI & Data Science, working as a Generative AI Engineer at Zupit: I build LLM agents, RAG pipelines and multi-agent systems, with a fullstack past (and present). My goal is to become a better programmer than myself."
+    },
+    "skills": {
+        "title": "Skills",
+        "projects_title": "Featured projects",
+        "categories": {
+            "genai": "GenAI / LLM",
+            "ml": "ML & Data Science",
+            "fullstack": "Full-stack",
+            "languages": "Languages",
+            "gamedev": "Game dev"
+        },
+        "projects": {
+            "lumia": "Multi-agent knowledge engineering platform built on the BDI cognitive model: RAG pipeline + 6 specialized agents.",
+            "skills_mp": "Open-source marketplace of Claude Code skills: reusable, ready-to-run AI workflows.",
+            "dl": "Image classification, sentiment analysis and anomaly detection with CNNs, LSTMs and autoencoders.",
+            "etrend": "Cloud-distributed analysis of electricity trends across 40+ European countries with PySpark and web scraping.",
+            "spacex": "IBM Data Science capstone: predicting Falcon 9 first-stage landing success.",
+            "live": "Production 3D web platforms: e-archeo.it (CNR virtual archaeology) and Codex4D (3D-model annotation)."
+        }
+    },
+    "contact": {
+        "title": "Contact me",
+        "subtitle": "An idea, a project, or just a chat? Drop me a line."
+    },
+    "loading": {
+        "did_you_know": "DID YOU KNOW:",
+        "texts": [
+            "IS THIS LOADING EVEN USEFUL?",
+            "SEEK AND YOU SHALL FIND"
+        ]
+    }
+}

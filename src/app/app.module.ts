@@ -10,13 +10,22 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
+import { ProjectCardComponent } from './skills/project-card/project-card.component';
 import { ContactComponent } from './contact/contact.component';
+import { LinkCardComponent } from './contact/link-card/link-card.component';
 import { LoadingComponent } from './loading/loading.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { LoadingService } from './loading-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GlobusComponent } from './globus/globus.component';
-import { TranslateService } from './translate.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/language/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +33,11 @@ import { TranslateService } from './translate.service';
     HomeComponent,
     AboutComponent,
     SkillsComponent,
+    ProjectCardComponent,
     ContactComponent,
+    LinkCardComponent,
     LoadingComponent,
-    GlobusComponent,  
+    GlobusComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,11 +47,19 @@ import { TranslateService } from './translate.service';
     MatButtonModule,
     MatIconModule,
     MatProgressBarModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
-    LoadingService,
-    TranslateService
+    LoadingService
   ],
   bootstrap: [AppComponent]
 })

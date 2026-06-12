@@ -2,18 +2,18 @@
     <div class="content" [ngClass]="loadingService.loading?loadingService.closeEndLoading?'fading-out':'fading-in':''">
         <div class="left-content">
             <div class="intro">
-                
-                <span *ngFor="let num of uti.getSplit('CIAO,')" class="popping">{{num}}</span>
-                    
+
+                <span *ngFor="let num of uti.getSplit('home.hello' | translate)" class="popping">{{num}}</span>
+
                 <p class="spacer"></p>
-                <span *ngFor="let num of uti.getSplit('SONO&nbsp;SIMONE.')" class="popping">{{num}}</span>
-                
+                <span *ngFor="let num of uti.getSplit('home.iam' | translate)" class="popping">{{num}}</span>
+
                 <p class="spacer"></p>
-                <span *ngFor="let num of uti.getSplit('Sviluppatore.')" class="popping">{{num}}</span>
+                <span *ngFor="let num of uti.getSplit('home.role' | translate)" class="popping">{{num}}</span>
                 <p class="spacer"></p>
-                <span class="subtext">Data scientist | Fullstack developer | Freelancer</span>
+                <span class="subtext">{{ 'home.subtext' | translate }}</span>
             </div>
-        
+
         </div>
 
         <div class="right-content">
@@ -22,8 +22,7 @@
                     <p class="left-icon">S</p>
                     <p class="right-icon">S</p>
                 </div>
-                
+
             </div>
         </div>
     </div>
-    

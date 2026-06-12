@@ -38,5 +38,11 @@
         </a>
     </div>
 
+    <div class="lang-toggle">
+        <span class="lang" [ngClass]="translate.currentLang==='it'?'lang-active':''" (click)="setLang('it')">IT</span>
+        <span class="lang-sep">|</span>
+        <span class="lang" [ngClass]="translate.currentLang==='en'?'lang-active':''" (click)="setLang('en')">EN</span>
+    </div>
+
 </div>
 
