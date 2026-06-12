@@ -1,0 +1,36 @@
+:host{
+    display: block;
+}
+.link-card{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background: #272424;
+    border: 1px solid transparent;
+    border-radius: 0.8em;
+    padding: 1em 1.4em;
+    text-decoration: none;
+    width: min(24em, 100%);
+    box-sizing: border-box;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.link-card:hover{
+    border-color: aquamarine;
+    transform: translateX(6px);
+}
+.link-icon{
+    color: #f5deb3;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+.link-card:hover .link-icon{
+    color: aquamarine;
+}
+.link-label{
+    color: #f5deb3;
+    font-weight: bold;
+}
+.link-value{
+    color: gray;
+    font-size: 0.9em;
+}

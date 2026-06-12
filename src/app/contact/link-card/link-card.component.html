@@ -1,0 +1,7 @@
+<a class="link-card" [href]="link.url" [attr.target]="link.external ? '_blank' : null" rel="noopener">
+    <fa-icon class="link-icon" [icon]="link.icon" size="xl"></fa-icon>
+    <div class="link-text">
+        <p class="link-label">{{link.label}}</p>
+        <p class="link-value">{{link.value}}</p>
+    </div>
+</a>

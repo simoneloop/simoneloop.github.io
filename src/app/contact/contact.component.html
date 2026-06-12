@@ -1,8 +1,14 @@
 <div class="content" [ngClass]="loadingService.loading?loadingService.closeEndLoading?'fading-out':'fading-in':''">
 
-    <div class="left-content">
-        <div class="intro">
-            <p>Contattami</p>
+    <div class="intro">
+        <span *ngFor="let num of uti.getSplit('contact.title' | translate)" class="popping">{{num}}</span>
+    </div>
+
+    <div class="page-body">
+        <p class="subtitle">{{ 'contact.subtitle' | translate }}</p>
+
+        <div class="links">
+            <app-link-card *ngFor="let l of links" [link]="l"></app-link-card>
         </div>
     </div>
 </div>
