@@ -1,6 +1,5 @@
 .title-about{
-    font-size: 48px;
-    
+    font-size: clamp(28px, 6vw, 48px);
 }
 p{
     font-size: 0.5em;
@@ -12,4 +11,13 @@ p{
     color: gray;
     margin-left: 1em;
     width: 15em;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .description-myself {
+        width: auto;
+        margin-left: 0;
+        font-size: 0.5em;
+    }
 }
